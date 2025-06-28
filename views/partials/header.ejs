@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StellarBuy</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    // Enable dark mode via class
+    tailwind.config = {
+      darkMode: 'class'
+    };
+  </script>
+</head>
+
+<body class="font-['helvetica_now_display'] bg-white text-black dark:bg-[#0c1323] dark:text-white transition-colors duration-300">
+    <!-- 🌟 Stylish Navbar -->
+  <nav class="w-full flex justify-between items-center px-3 py-4 bg-gradient-to-r from-blue-100 to-blue-500 dark:from-gray-900 dark:to-gray-800 shadow-md">
+     <div class="flex items-center gap-3">>
+    <h3 class="text-2xl font-bold text-blue-900 dark:text-white tracking-wide">StellarBuy😎</h3>
+     </div>
+    <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true; %>
+    <% if (loggedin) { %>
+      <div class="flex gap-6 items-center text-xl font-medium">
+        <a href="/shop" class="hover:text-blue-600 transition">Shop</a>
+        <a href="/wishlist" class="text-blue-600 transition">Wishlist ❤</a>
+        <a href="/cart" class="hover:text-blue-600 transition">Cart</a>
+        <a href="/myaccount" class="hover:text-blue-900 transition">My Account</a>
+        <a class="text-red-800 hover:text-red-800 transition" href="/users/logout">Logout</a>
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="text-xl p-2 border rounded-full hover:bg-blue-200 dark:hover:bg-gray-700 transition">
+          🌓 Toggle Theme<i class="ri-moon-clear-line"></i>
+        </button>
+      </div>
+    <% } %>
+  </nav>
+
+  <script>
+    // Optional: dark/light mode toggle
+    const toggle = document.getElementById("themeToggle");
+    toggle?.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
